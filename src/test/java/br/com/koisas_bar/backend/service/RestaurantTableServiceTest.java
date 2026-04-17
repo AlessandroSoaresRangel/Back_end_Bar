@@ -2,29 +2,23 @@ package br.com.koisas_bar.backend.service;
 
 import br.com.koisas_bar.backend.domain.RestaurantTable;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 
 @SpringBootTest
-public class RestaurantTableServiceTest {
+class RestaurantTableServiceTest {
 
     @Autowired
-    private TableService service;
-
-    private static RestaurantTable restaurantTable;
-
-    @BeforeAll
-    static void init(){
-        restaurantTable = new RestaurantTable();
-        restaurantTable.setNumber(5);
-        restaurantTable.setStatus(RestaurantTable.Status.ABERTA);
-    }
+    private RestaurantTableService service;
 
     @Test
-    public void createTableTest(){
+     void createTableTest(){
+        RestaurantTable restaurantTable = new RestaurantTable();
+        restaurantTable.setNumber(5);
+        restaurantTable.setStatus(RestaurantTable.Status.ABERTA);
+
         RestaurantTable savedRestaurantTable = service.createTable(restaurantTable);
 
         Assertions.assertNotNull(savedRestaurantTable);
@@ -32,11 +26,15 @@ public class RestaurantTableServiceTest {
     }
 
     @Test
-    public void updateTableTest(){
+     void updateTableTest(){
 
+        RestaurantTable restaurantTable = new RestaurantTable();
+        restaurantTable.setNumber(5);
+        restaurantTable.setStatus(RestaurantTable.Status.ABERTA);
 
+        RestaurantTable saved = service.createTable(restaurantTable);
 
-        RestaurantTable savedRestaurantTable = service.updateTable(restaurantTable);
+        RestaurantTable savedRestaurantTable = service.updateTable(saved);
 
         Assertions.assertNotNull(savedRestaurantTable);
     }

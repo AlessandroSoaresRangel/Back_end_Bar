@@ -1,19 +1,19 @@
 package br.com.koisas_bar.backend.service;
 
 import br.com.koisas_bar.backend.domain.RestaurantTable;
-import br.com.koisas_bar.backend.repository.TableRepository;
+import br.com.koisas_bar.backend.repository.RestaurantTableRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class TableService {
+public class RestaurantTableService {
 
-    private final TableRepository repository;
+    private final RestaurantTableRepository repository;
 
     @Autowired
-    public TableService (TableRepository repository) {
+    public RestaurantTableService(RestaurantTableRepository repository) {
         this.repository = repository;
     }
 

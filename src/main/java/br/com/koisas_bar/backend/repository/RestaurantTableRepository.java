@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface TableRepository extends CrudRepository<RestaurantTable, Long> {
+public interface RestaurantTableRepository extends CrudRepository<RestaurantTable, Long> {
     List<RestaurantTable> findAll();
 }
