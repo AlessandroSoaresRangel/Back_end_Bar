@@ -24,8 +24,8 @@ class ProductServiceTest {
         product.setQuantity(4);
         product.setBuyingDate(Date.valueOf("2026-03-07"));
         product.setType("teste");
-        product.setBuyingPrice(9D);
-        product.setSellingPrice(20D);
+        product.setBuyingPrice(9f);
+        product.setSellingPrice(20f);
 
         Product returning = this.service.updateProduct(product);
 
@@ -42,8 +42,8 @@ class ProductServiceTest {
         product.setQuantity(4);
         product.setBuyingDate(Date.valueOf("2026-03-07"));
         product.setType("teste");
-        product.setBuyingPrice(9D);
-        product.setSellingPrice(20D);
+        product.setBuyingPrice(9f);
+        product.setSellingPrice(20f);
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> this.service.updateProduct(product));
     }

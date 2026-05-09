@@ -1,0 +1,12 @@
+package br.com.koisas_bar.backend.repository;
+
+import br.com.koisas_bar.backend.domain.OrderItem;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface OrderItemRepository  extends CrudRepository<OrderItem, Long> {
+    List<OrderItem> findAll();
+}

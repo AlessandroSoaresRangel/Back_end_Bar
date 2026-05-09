@@ -23,13 +23,24 @@ public class Product {
     private String type;
 
     @Column(nullable = false)
-    private Double sellingPrice;
+    private Float sellingPrice;
 
     @Column(nullable = false)
-    private Double buyingPrice;
+    private Float buyingPrice;
 
     @Column(nullable = false)
     private Date buyingDate;
+
+   @OneToOne(mappedBy = "product")
+   private OrderItem order;
+
+    public OrderItem getBill() {
+        return order;
+    }
+
+    public void setBill(OrderItem order) {
+        this.order = order;
+    }
 
     public Long getId() {
         return id;
@@ -63,19 +74,19 @@ public class Product {
         this.type = type;
     }
 
-    public Double getSellingPrice() {
+    public Float getSellingPrice() {
         return sellingPrice;
     }
 
-    public void setSellingPrice(Double sellingPrice) {
+    public void setSellingPrice(Float sellingPrice) {
         this.sellingPrice = sellingPrice;
     }
 
-    public Double getBuyingPrice() {
+    public Float getBuyingPrice() {
         return buyingPrice;
     }
 
-    public void setBuyingPrice(Double buyingPrice) {
+    public void setBuyingPrice(Float buyingPrice) {
         this.buyingPrice = buyingPrice;
     }
 

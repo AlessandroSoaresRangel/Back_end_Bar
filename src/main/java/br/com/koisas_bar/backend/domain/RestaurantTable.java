@@ -20,6 +20,9 @@ public class RestaurantTable {
     @Enumerated(EnumType.STRING)
     private Status status;
 
+    @OneToOne(mappedBy = "table")
+    private Bill bill;
+
     public Long getId() {
         return id;
     }
