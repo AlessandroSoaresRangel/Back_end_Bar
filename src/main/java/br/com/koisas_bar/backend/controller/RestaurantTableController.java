@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/tables")
+@RequestMapping(path = "/tables")
 public class RestaurantTableController {
 
     private RestaurantTableService service;
 
     @Autowired
-    public RestaurantTableController(RestaurantTableService service) {
+    private RestaurantTableController(RestaurantTableService service) {
         this.service = service;
     }
 
@@ -29,9 +29,15 @@ public class RestaurantTableController {
         return ResponseEntity.ok(service.getTable(id));
     }
 
+    @GetMapping("/by-number/{number}")
+    public ResponseEntity<RestaurantTable> findByNumber(@PathVariable int number) {
+        RestaurantTable table = service.findByNumber(number);
+        return  ResponseEntity.ok(table);
+    }
+
     @PostMapping
     public ResponseEntity<RestaurantTable> createTable(@RequestBody RestaurantTable table) {
-        return ResponseEntity.ok(service.createTable(table));
+        return ResponseEntity.status(201).body(service.createTable(table));
     }
 
     @PutMapping

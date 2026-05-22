@@ -13,7 +13,7 @@ public class ProductService{
     private final ProductRepository repository;
 
     @Autowired
-    public ProductService (ProductRepository repository) {
+    private ProductService (ProductRepository repository) {
         this.repository = repository;
     }
 
@@ -22,7 +22,9 @@ public class ProductService{
     }
 
     public Product createProduct(Product product) {
-        return this.repository.save(product);
+        Product newProduct = this.repository.save(product);
+
+        return newProduct;
     }
 
     public List<Product> getAllProduct() {

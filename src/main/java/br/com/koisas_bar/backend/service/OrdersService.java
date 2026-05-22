@@ -14,12 +14,12 @@ public class OrdersService {
     private final OrdersRepository repository;
 
     @Autowired
-    public OrdersService (OrdersRepository repository) {
+    private OrdersService (OrdersRepository repository) {
         this.repository = repository;
     }
 
     public Orders getOrder(long id) {
-        return this.repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Product not found."));
+        return this.repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Order not found."));
     }
 
     public Orders createOrder(Orders order) {
@@ -30,7 +30,7 @@ public class OrdersService {
         return this.repository.findAll();
     }
 
-    public Orders updateProduct(Orders order) {
+    public Orders updateOrder(Orders order) {
         this.repository.findById(order.getId())
                 .orElseThrow(() -> new IllegalArgumentException("Object does not exist."));
         return this.repository.save(order);

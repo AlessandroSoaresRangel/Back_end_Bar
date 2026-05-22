@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface RestaurantTableRepository extends CrudRepository<RestaurantTable, Long> {
     List<RestaurantTable> findAll();
+    RestaurantTable findByNumber(int number);
 }

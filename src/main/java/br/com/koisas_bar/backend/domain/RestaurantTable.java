@@ -14,7 +14,7 @@ public class RestaurantTable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private Integer number;
 
     @Enumerated(EnumType.STRING)

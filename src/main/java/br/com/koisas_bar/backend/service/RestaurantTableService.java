@@ -13,7 +13,7 @@ public class RestaurantTableService {
     private final RestaurantTableRepository repository;
 
     @Autowired
-    public RestaurantTableService(RestaurantTableRepository repository) {
+    private RestaurantTableService(RestaurantTableRepository repository) {
         this.repository = repository;
     }
 
@@ -21,8 +21,14 @@ public class RestaurantTableService {
         return this.repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Table not found."));
     }
 
+    public RestaurantTable findByNumber(int number) {
+        return this.repository.findByNumber(number);
+    }
+
     public RestaurantTable createTable(RestaurantTable restaurantTable) {
+
         return this.repository.save(restaurantTable);
+
     }
 
     public List<RestaurantTable> getAllTable() {
